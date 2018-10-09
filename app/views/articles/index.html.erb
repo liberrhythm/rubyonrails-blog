@@ -1,12 +1,20 @@
 <div class="container">
-  <h1>SABRINA STREET JOURNAL</h1>
-  <%= link_to 'Submit New Article', new_article_path, class: 'btn btn-primary'%>
- 
+
+  <div class="row">
+    <div class="col-sm-8">
+      <h1>SABRINA STREET JOURNAL</h1>
+    </div>  
+    <div class="col-sm-4">
+      <%= link_to 'Submit New Article', new_article_path, class: 'btn btn-primary float-right'%>
+    </div>
+  </div>
+
   <table class="table">
     <thead class="thead-light">
       <tr>
         <th>Title</th>
-        <th>Text</th>
+        <th>Subtitle</th>
+        <th>Category</th>
         <th>Actions</th>
       </tr>
      </thead>
@@ -15,11 +23,18 @@
       <% @articles.each do |article| %>
         <tr>
           <td><%= article.title %></td>
-          <td><%= article.text %></td>
+          <td><%= article.subtitle %></td>
+          <td><%= article.category %></td>
           <td>
-            <%= link_to 'Show', article_path(article), class: 'glyphicon glyphicon-new-window' %>
-            <%= link_to 'Edit', edit_article_path(article), class: 'glyphicon glyphicon-edit' %>
-            <%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash' %>
+            <%= link_to article_path(article) do %>
+              <%= fa_icon "external-link" %>
+            <% end %>
+            <%= link_to edit_article_path(article) do %>
+              <%= fa_icon "pencil" %>
+            <% end %>
+            <%= link_to article_path(article), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <%= fa_icon "trash" %>
+            <% end %>
           </td>
          </tr>
       <% end %>

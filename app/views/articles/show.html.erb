@@ -1,18 +1,31 @@
-<div class="container">  
-  <h2>
+<div class="container">
+  <div class="row">
+    <div id="article-category" class="col-sm-4">
+      <h6><%= @article.category %></h6>
+    </div>  
+    <div class="col-sm-8">
+      <div class="btn-group float-right" role="group">
+        <%= link_to 'Edit Article', edit_article_path(@article), class: 'btn btn-sm btn-secondary' %>
+        <%= link_to 'Back to Articles', articles_path, class: 'btn btn-sm btn-light' %>
+      </div>
+    </div>
+  </div>
+  
+
+  <h2 id="article-title">
     <%= @article.title %>
   </h2>
- 
-  <p>
+
+  <h5 id="article-subtitle">
+    <%= @article.subtitle %>
+  </h5>
+
+  <p id="article-text">
     <%= @article.text %>
   </p>
 
+  <hr/>
   <h4>Comments:</h4>
   <%= render @article.comments %>
-
-  <h2>Add a comment:</h2>
   <%= render 'comments/form' %>
-
-  <%= link_to 'Edit Article', edit_article_path(@article) %>
-  <%= link_to 'Back to Article', articles_path %>
 </div>

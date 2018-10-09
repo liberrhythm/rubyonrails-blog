@@ -18,6 +18,16 @@
     <%= form.label :title, class: 'col-sm-2 col-form-label' %><br>
     <%= form.text_field :title, class: 'form-control col-sm-10'%>
   </p>
+
+  <p class="form-group row">
+    <%= form.label :subtitle, class: 'col-sm-2 col-form-label' %><br>
+    <%= form.text_field :subtitle, class: 'form-control col-sm-10' %>
+  </p>
+
+  <p class="form-group row">
+    <%= form.label :category, class: 'col-sm-2 col-form-label' %><br>
+    <%= form.select :category, ['Politics', 'Economy', 'Business', 'Tech', 'Markets', 'Opinion', 'Life & Arts', 'Entertainment'], class: 'form-control col-sm-10' %>
+  </p>
  
   <p class="form-group row">
     <%= form.label :text, class: 'col-sm-2 col-form-label' %><br>
